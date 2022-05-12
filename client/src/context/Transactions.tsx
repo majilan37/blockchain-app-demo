@@ -171,7 +171,7 @@ export default function TransactionsProvider({
         params: [
           {
             from: currentAccount,
-            to: formData.addressTo,
+            to: addressTo,
             gas: "0x5208", // 21000 GWEI
             value: ethers.utils.parseEther(formData.amount)._hex,
           },
@@ -180,7 +180,7 @@ export default function TransactionsProvider({
 
       const transactionHash = await transactionContract.addToBlockchain(
         addressTo,
-        Number(amount),
+        amount,
         keyword,
         message
       );

@@ -77,26 +77,40 @@ function Transactions() {
     <div>
       {currentAccount ? (
         <Box>
-          <Typography variant="h4" color={"white"} textAlign="center">
+          <Typography
+            variant="h4"
+            color={"white"}
+            gutterBottom
+            textAlign="center">
             Latest Transactions
           </Typography>
           <Box>
-            {transactions.map((transaction) => (
-              <TransactionCard
-                addressTo={transaction.addressTo}
-                addressFrom={transaction.addressFrom}
-                timestamp={transaction.timestamp}
-                message={transaction.message}
-                keyword={transaction.keyword}
-                amount={transaction.amount}
-              />
-            ))}
+            {transactions.length > 0 ? (
+              transactions.map((transaction) => (
+                <TransactionCard
+                  addressTo={transaction.addressTo}
+                  addressFrom={transaction.addressFrom}
+                  timestamp={transaction.timestamp}
+                  message={transaction.message}
+                  keyword={transaction.keyword}
+                  amount={transaction.amount}
+                />
+              ))
+            ) : (
+              <Typography
+                variant="subtitle1"
+                textAlign={"center"}
+                gutterBottom
+                color="white">
+                You have no transactions
+              </Typography>
+            )}
           </Box>
         </Box>
       ) : (
         <Box>
           <Typography variant="h4" color={"white"} textAlign="center">
-            Connect Your account to see <br /> your latest transactions
+            Connect Your wallet to see <br /> your latest transactions
           </Typography>
         </Box>
       )}

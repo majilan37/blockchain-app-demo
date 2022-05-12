@@ -19,7 +19,7 @@ declare module "ethers" {
   interface Contract {
     addToBlockchain: (
       receiver: string,
-      amount: number,
+      amount: string,
       message: string,
       keyword: string
     ) => Promise<any>;

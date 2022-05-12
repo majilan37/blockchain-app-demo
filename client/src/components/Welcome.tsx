@@ -96,8 +96,7 @@ function Input({
 }
 
 function Welcome() {
-  const [loading, setLoading] = useState(false);
-  const { connectWallet, currentAccount, onChange, formData, sendTransaction } =
+  const { connectWallet, currentAccount, onChange, formData, sendTransaction, loading } =
     useTranscation();
   const { addressTo, amount, keyword, message } = formData;
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
